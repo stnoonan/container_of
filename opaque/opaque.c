@@ -8,7 +8,7 @@
 #include "opaque_public.h"
 #include "opaque_private.h"
 
-inline void increment_counter_o(opaque_container_t *container) {
+void increment_counter_o(opaque_container_t *container) {
     ++container->public_counter;
 }
 
