@@ -6,6 +6,8 @@ void test_public(int iterations) {
     public_data_t *pub = init_counter_c();
     for (int ii=0; ii<iterations; ++ii) {
         ++pub->counter;
+        /* don't optimize out the loop */
+        asm("");
     }
     tag_counter_c(pub, "public");
     fprintf(stderr, "Public counter: %"PRIu64"\n", pub->counter);

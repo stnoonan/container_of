@@ -6,6 +6,8 @@ void test_opaque(int iterations) {
     opaque_container_t *opaque = init_counter_o();
     for (uint ii=0; ii < iterations; ++ii) {
         increment_counter_o(opaque);
+        /* don't optimize out the loop */
+        asm("");
     }
     tag_counter_o(opaque, "opaque");
     fprintf(stderr, "Opaque counter: %"PRIu64"\n", read_counter_o(opaque));
